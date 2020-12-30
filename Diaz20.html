@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Mikel Diaz Rodriguez" />
+<meta name="author" content="Mikel Diaz Rodriguez y Ramon Fabregas Valcarce" />
 
 
 <title>Codigo para el articulo: Definiendo el patron de ocupacion del Paleolitico inferior en la depresion de Monforte de Lemos (Lugo, Galicia)</title>
@@ -187,24 +187,26 @@ summary {
 
 
 <h1 class="title toc-ignore">Codigo para el articulo: <em>Definiendo el patron de ocupacion del Paleolitico inferior en la depresion de Monforte de Lemos (Lugo, Galicia)</em></h1>
-<h4 class="author">Mikel Diaz Rodriguez</h4>
-<h4 class="date">22 de diciembre del 2020</h4>
+<h4 class="author">Mikel Diaz Rodriguez y Ramon Fabregas Valcarce</h4>
+<h4 class="date">30 de diciembre del 2020</h4>
 
 </div>
 
 
 <div id="introduccion" class="section level1">
 <h1>Introduccion</h1>
-<p>Este documento permite realizar los analisis que se han llevado a cabo en el articulo titulado &quot;Definiendo el patron de ocupacion del Paleolotico inferior en la depresion de Monforte de Lemos (Lugo, Galicia)&quot;.</p>
+<p>Este documento permite realizar los analisis que se han llevado a cabo en el articulo titulado &quot;Definiendo el patron de ocupacion del Paleolitico inferior en la depresion de Monforte de Lemos (Lugo, Galicia)&quot;.</p>
 <p>Para ello es necesario ejecutar los pasos que se muestran en las siguientes lineas.</p>
 </div>
 <div id="crear-graficos-de-intensidad" class="section level1">
 <h1>Crear graficos de intensidad</h1>
 <div id="paquetes-necesarios" class="section level3">
 <h3>Paquetes necesarios</h3>
+<p>Importacion de los paquetes necesarios para crear los graficos de intensidad.</p>
 </div>
 <div id="importar-datos" class="section level3">
 <h3>Importar Datos</h3>
+<p>Paso consistente en importar los datos de las distintas variables y de los yacimientos.</p>
 <pre class="r"><code>elevacion &lt;- raster(&quot;grids/dem_monforte.tif&quot;)
 studyarea &lt;- readOGR(dsn=&quot;shp/area_monforte.shp&quot;, layer=&quot;area_monforte&quot;)
 sites &lt;- readOGR(dsn=&quot;shp/sitios.shp&quot;, layer=&quot;sitios&quot;)
@@ -217,6 +219,7 @@ prom_visu &lt;- raster(&quot;grids/prominencia_visual_monforte.tif&quot;)</code>
 </div>
 <div id="comprobar-patron-monovariante" class="section level3">
 <h3>Comprobar patron monovariante</h3>
+<p>Comprobacion del patron monovariante.</p>
 <pre class="r"><code>elev &lt;- as.im(as(elevacion,&quot;SpatialGridDataFrame&quot;))
 pend &lt;- as.im(as(pendiente,&quot;SpatialGridDataFrame&quot;))
 chumed &lt;- as.im(as(coste_humed,&quot;SpatialGridDataFrame&quot;))
@@ -225,6 +228,7 @@ provi &lt;- as.im(as(prom_visu,&quot;SpatialGridDataFrame&quot;))</code></pre>
 </div>
 <div id="funcion-de-intensidad" class="section level3">
 <h3>Funcion de Intensidad</h3>
+<p>Creacion de la funcion de intensidad.</p>
 <pre class="r"><code>elev.rh &lt;- rhohat(sppp, elev, confidence=0.95)
 pend.rh &lt;- rhohat(sppp, pend, confidence=0.95)
 chumed.rh &lt;- rhohat(sppp, chumed, confidence=0.95)
@@ -233,6 +237,7 @@ provi.rh &lt;- rhohat(sppp, provi, confidence=0.95)</code></pre>
 </div>
 <div id="crear-figura-1b" class="section level3">
 <h3>Crear Figura 1B</h3>
+<p>Crear y exportar grafico de intensidad relativo a la altitud.</p>
 <pre class="r"><code>plot(elev.rh, main= &quot;&quot;, xlab=&quot;m.s.n.m&quot;, ylab=&quot;&quot;, xlim=c(250,500), legend=FALSE, cex.axis=0.9)
 legend(&quot;topleft&quot;, legend=&quot;Altitud&quot;, cex=0.9, bty=&quot;n&quot;, text.font=2)
 
@@ -240,6 +245,7 @@ pdf(file = &quot;~output/Figura1B.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-1c" class="section level3">
 <h3>Crear Figura 1C</h3>
+<p>Crear y exportar grafico de intensidad relativo a la pendiente.</p>
 <pre class="r"><code>plot(pend.rh, main= &quot;&quot;, xlab=&quot;Grados&quot;, ylab=&quot;&quot;, xlim=c(0,6.8), legend=FALSE, cex.axis=0.9)
 legend(&quot;topleft&quot;, legend=&quot;Pendiente&quot;, cex=0.9, bty=&quot;n&quot;, text.font=2)
 
@@ -247,6 +253,7 @@ pdf(file = &quot;~output/Figura1C.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-1d" class="section level3">
 <h3>Crear Figura 1D</h3>
+<p>Crear grafico de intensidad relativo a la hidrologia potencial.</p>
 <pre class="r"><code>plot(pend.rh, main= &quot;&quot;, xlab=&quot;Segundos&quot;, ylab=&quot;&quot;, xlim=c(0,6500), legend=FALSE, cex.axis=0.9)
 legend(&quot;topleft&quot;, legend=&quot;Coste a zonas de Hidrologia potencial&quot;, cex=0.9, bty=&quot;n&quot;, text.font=2)
 
@@ -254,6 +261,7 @@ pdf(file = &quot;~output/Figura1D.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-1e" class="section level3">
 <h3>Crear Figura 1E</h3>
+<p>Crear y exportar grafico de intensidad relativo al coste a las zonas de humedal.</p>
 <pre class="r"><code>plot(pend.rh, main= &quot;&quot;, xlab=&quot;Segundos&quot;, ylab=&quot;&quot;, xlim=c(0,1150), legend=FALSE, cex.axis=0.9)
 legend(&quot;topleft&quot;, legend=&quot;Coste a zonas de Humedal&quot;, cex=0.9, bty=&quot;n&quot;, text.font=2)
 
@@ -261,6 +269,7 @@ pdf(file = &quot;~output/Figura1E.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-1f" class="section level3">
 <h3>Crear Figura 1F</h3>
+<p>Crear y exportar grafico de intensidad relativo al indice de prominencia visual.</p>
 <pre class="r"><code>plot(pend.rh, main= &quot;&quot;, xlab=&quot;Indice&quot;, ylab=&quot;&quot;, xlim=c(0,105), legend=FALSE, cex.axis=0.9)
 legend(&quot;topleft&quot;, legend=&quot;Prominencia visual&quot;, cex=0.9, bty=&quot;n&quot;, text.font=2)
 
@@ -271,11 +280,13 @@ pdf(file = &quot;~output/Figura1F.pdf&quot;,width = 5,height = 12)</code></pre>
 <h1>Crear graficos de barras</h1>
 <div id="paquetes-necesarios-1" class="section level3">
 <h3>Paquetes necesarios</h3>
+<p>Importacion de los paquetes necesarios para crear los graficos de barras.</p>
 <pre class="r"><code>spatpack&lt;-c(&quot;spatstat&quot;,&quot;dismo&quot;, &quot;MASS&quot;, &quot;ggplot2&quot;, &quot;plyr&quot;, &quot;sp&quot;,&quot;maps&quot;,&quot;maptools&quot;,&quot;raster&quot;,&quot;geostatsp&quot;,&quot;rgdal&quot;)
 lapply(spatpack, require, character.only = TRUE)</code></pre>
 </div>
 <div id="importar-datos-1" class="section level3">
 <h3>Importar Datos</h3>
+<p>Paso consistente en importar los datos de los csv.</p>
 <pre class="r"><code>altplot &lt;- read.table(file=&quot;csv/altplot.csv&quot;,header=TRUE, sep=&quot;;&quot;)
 altplot1 &lt;- read.table(file=&quot;csv/altplot1.csv&quot;,header=TRUE, sep=&quot;;&quot;)
 altplot2 &lt;- read.table(file=&quot;csv/altplot2.csv&quot;,header=TRUE, sep=&quot;;&quot;)
@@ -284,6 +295,7 @@ altplot4 &lt;- read.table(file=&quot;csv/altplot4.csv&quot;,header=TRUE, sep=&qu
 </div>
 <div id="crear-figura-2a" class="section level3">
 <h3>Crear Figura 2A</h3>
+<p>Crear y exportar grafico de barras relativo a la altitud.</p>
 <pre class="r"><code>altplot$Altitud &lt;- factor (altplot$Altitud, levels = c(&quot;0-100&quot;, &quot;100-200&quot;,&quot;200-300&quot;,&quot;300-400&quot;,&quot;400-500&quot;,&quot;500-600&quot;,&quot;600-700&quot;,&quot;700-800&quot;,&quot;800-900&quot;,&quot;900-1000&quot;,&quot;1000-1100&quot;,&quot;1100-1200&quot;,&quot;1200-1300&quot;,&quot;1300-1400&quot;,&quot;1400-1500&quot;))  
 
 p &lt;- ggplot(altplot,aes(Altitud,Porcentaje)) + geom_bar(data=subset(altplot,Categoria==&quot;Terreno&quot;),stat=&quot;identity&quot;, fill=&quot;gray&quot;) + geom_line(data=subset(altplot,Categoria==&quot;Yacimiento&quot;), aes(group=&quot;Categoria&quot;, colour=&quot;red&quot;),size=1.5) + guides(colour=FALSE) + theme(axis.text=element_text(size=12),axis.title=element_text(size=14,face=&quot;bold&quot;)) + labs(title = &quot;&quot;, y = &quot;Porcentaje&quot;, x = &quot;Altitud (msnm)&quot;)  
@@ -299,6 +311,7 @@ pdf(file = &quot;~output/Figura2A.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-2b" class="section level3">
 <h3>Crear Figura 2B</h3>
+<p>Crear y exportar grafico de barras relativo a la pendiente.</p>
 <pre class="r"><code>altplot1$Pendiente &lt;- factor (altplot1$Pendiente, levels = c(&quot;0-5&quot;, &quot;5-10&quot;,&quot;10-15&quot;,&quot;15-20&quot;,&quot;20-25&quot;,&quot;25-30&quot;,&quot;30-35&quot;,&quot;35-40&quot;,&quot;40-45&quot;,&quot;45-50&quot;,&quot;50-55&quot;,&quot;55-60&quot;,&quot;60-65&quot;))  
 
 p1 &lt;- ggplot(altplot1,aes(Pendiente,Porcentaje)) + geom_bar(data=subset(altplot1,Categoria==&quot;Terreno&quot;),stat=&quot;identity&quot;, fill=&quot;gray&quot;) + geom_line(data=subset(altplot1,Categoria==&quot;Yacimiento&quot;), aes(group=&quot;Categoria&quot;, colour=&quot;red&quot;),size=1.5) + guides(colour=FALSE) + theme(axis.text=element_text(size=12),axis.title=element_text(size=14,face=&quot;bold&quot;))+ labs(title = &quot;&quot;, y = &quot;Porcentaje&quot;, x = &quot;Pendiente (grados)&quot;)   
@@ -314,6 +327,7 @@ pdf(file = &quot;~output/Figura2B.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-2c" class="section level3">
 <h3>Crear Figura 2C</h3>
+<p>Crear y exportar grafico de barras relativo al coste a la hidrologia potencial.</p>
 <pre class="r"><code>altplot2$Coste &lt;- factor (altplot2$Coste, levels = c(&quot;0-1000&quot;, &quot;1000-2000&quot;,&quot;2000-3000&quot;,&quot;3000-4000&quot;,&quot;4000-5000&quot;,&quot;5000-6000&quot;,&quot;6000-7000&quot;,&quot;7000-8000&quot;,&quot;8000-9000&quot;,&quot;9000-10000&quot;,&quot;10000-11000&quot;,&quot;11000-12000&quot;,&quot;12000-13000&quot;))  
 
 p2 &lt;- ggplot(altplot2,aes(Coste,Porcentaje)) + geom_bar(data=subset(altplot2,Categoria==&quot;Terreno&quot;),stat=&quot;identity&quot;, fill=&quot;gray&quot;) + geom_line(data=subset(altplot2,Categoria==&quot;Yacimiento&quot;), aes(group=&quot;Categoria&quot;, colour=&quot;red&quot;),size=1.5) + guides(colour=FALSE) + theme(axis.text=element_text(size=12),axis.title=element_text(size=14,face=&quot;bold&quot;))+ labs(title = &quot;&quot;, y = &quot;Porcentaje&quot;, x = &quot;Coste a hidrologia (segundos)&quot;)   
@@ -329,6 +343,7 @@ pdf(file = &quot;~output/Figura2C.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-2d" class="section level3">
 <h3>Crear Figura 2D</h3>
+<p>Crear y exportar grafico de barras relativo al coste a las zonas de humedal.</p>
 <pre class="r"><code>altplot3$Coste &lt;- factor (altplot3$Coste, levels = c(&quot;0-1000&quot;, &quot;1000-2000&quot;,&quot;2000-3000&quot;,&quot;3000-4000&quot;,&quot;4000-5000&quot;,&quot;5000-6000&quot;,&quot;6000-7000&quot;,&quot;7000-8000&quot;,&quot;8000-9000&quot;,&quot;9000-10000&quot;,&quot;10000-11000&quot;,&quot;11000-12000&quot;))  
 
 p3 &lt;- ggplot(altplot3,aes(Coste,Porcentaje)) + geom_bar(data=subset(altplot3,Categoria==&quot;Terreno&quot;),stat=&quot;identity&quot;, fill=&quot;gray&quot;) + geom_line(data=subset(altplot3,Categoria==&quot;Yacimiento&quot;), aes(group=&quot;Categoria&quot;, colour=&quot;red&quot;),size=1.5) + guides(colour=FALSE) + theme(axis.text=element_text(size=12),axis.title=element_text(size=14,face=&quot;bold&quot;))+ labs(title = &quot;&quot;, y = &quot;Porcentaje&quot;, x = &quot;Coste a zonas de humedal (segundos)&quot;) 
@@ -344,6 +359,7 @@ pdf(file = &quot;~output/Figura2D.pdf&quot;,width = 5,height = 12)</code></pre>
 </div>
 <div id="crear-figura-2e" class="section level3">
 <h3>Crear Figura 2E</h3>
+<p>Crear y exportar grafico de barras relativo al indice de prominencia visual.</p>
 <pre class="r"><code>altplot4$Indice &lt;- factor (altplot4$Indice, levels = c(&quot;0-20&quot;, &quot;20-40&quot;,&quot;40-60&quot;,&quot;60-80&quot;,&quot;80-100&quot;,&quot;100-120&quot;,&quot;120-140&quot;,&quot;140-160&quot;,&quot;160-180&quot;,&quot;180-200&quot;))  
 
 p4 &lt;- ggplot(altplot4,aes(Indice,Porcentaje)) + geom_bar(data=subset(altplot4,Categoria==&quot;Terreno&quot;),stat=&quot;identity&quot;, fill=&quot;gray&quot;) + geom_line(data=subset(altplot4,Categoria==&quot;Yacimiento&quot;), aes(group=&quot;Categoria&quot;, colour=&quot;red&quot;),size=1.5) + guides(colour=FALSE) + theme(axis.text=element_text(size=12),axis.title=element_text(size=14,face=&quot;bold&quot;))+ labs(title = &quot;&quot;, y = &quot;Porcentaje&quot;, x = &quot;Indice de Prominencia Visual&quot;)  
