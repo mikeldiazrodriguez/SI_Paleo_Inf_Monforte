@@ -1,6 +1,6 @@
 ---
 title: "Codigo para el articulo: *Definiendo el patron de ocupacion del Paleolitico inferior en la depresion de Monforte de Lemos (Lugo, Galicia)*"
-author: "Mikel Diaz Rodriguez y Ramon Fabregas Valcarce"
+author: "Mikel Diaz Rodriguez, Ramon Fabregas Valcarce y Augusto Perez Alberti"
 date: "30 de diciembre del 2020"
 output: html_document
 ---
