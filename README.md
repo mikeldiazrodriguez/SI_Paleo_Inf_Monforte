@@ -17,6 +17,6 @@ Mikel Díaz Rodríguez, Ramón Fábregas Valcarce, & Augusto Pérez Alberti. (20
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4434113.svg)](https://doi.org/10.5281/zenodo.4434113)
 
-Enlace en Zenodo: https://zenodo.org/record/4434113#.X_1_r1VKgdV
+Enlace al repositorio en Zenodo: https://zenodo.org/record/4434113#.X_1_r1VKgdV
 # Licencia
 CC-BY 4.0
