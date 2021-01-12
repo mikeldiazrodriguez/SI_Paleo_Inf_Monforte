@@ -13,6 +13,6 @@ Diaz_et_al_20.html ... archivo html para generar los graficos del articulo
 
 /output/ ... carpeta con los archivos de salida en formato PDF
 # Cita bibliográfica del código
-[![DOI](https://zenodo.org/badge/323601788.svg)](https://zenodo.org/badge/latestdoi/323601788)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4434113.svg)](https://doi.org/10.5281/zenodo.4434113)
 # Licencia
 CC-BY 4.0
