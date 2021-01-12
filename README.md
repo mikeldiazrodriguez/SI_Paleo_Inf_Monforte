@@ -16,5 +16,7 @@ Diaz_et_al_20.html ... archivo html para generar los graficos del articulo
 Mikel Díaz Rodríguez, Ramón Fábregas Valcarce, & Augusto Pérez Alberti. (2020, December 30). Código para el artículo "Definiendo el patrón de ocupación del Paleolítico Inferior en la depresión de Monforte de Lemos (Lugo, Galicia)" (Version 1.1). Zenodo. 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4434113.svg)](https://doi.org/10.5281/zenodo.4434113)
+
+Enlace en Zenodo: https://zenodo.org/record/4434113#.X_1_r1VKgdV
 # Licencia
 CC-BY 4.0
