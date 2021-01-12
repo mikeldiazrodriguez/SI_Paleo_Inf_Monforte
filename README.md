@@ -3,9 +3,9 @@ Este repositorio contiene los datos necesarios para poder reproducir los analisi
 # Estructura del repositorio
 /csv/*.csv ... contiene archivos CSV para realizar los graficos de barras
 
-Diaz_y_Fabregas20.Rmd ... archivo Rmarkdown para generar los graficos del articulo
+Diaz_et_al_20.Rmd ... archivo Rmarkdown para generar los graficos del articulo
 
-Diaz_y_Fabregas20.html ... archivo html para generar los graficos del articulo
+Diaz_et_al_20.html ... archivo html para generar los graficos del articulo
 
 /grids/ ... carpeta con las capas raster para cada una de las variables
 
