@@ -93,7 +93,7 @@ pdf(file = "~output/Figura1C.pdf",width = 5,height = 12)
 Crear grafico de intensidad relativo a la hidrologia potencial.
 
 ```{r echo=TRUE, results='hide'}
-plot(pend.rh, main= "", xlab="Segundos", ylab="", xlim=c(0,6500), legend=FALSE, cex.axis=0.9)
+plot(chidro.rh, main= "", xlab="Segundos", ylab="", xlim=c(0,6500), legend=FALSE, cex.axis=0.9)
 legend("topleft", legend="Coste a zonas de Hidrologia potencial", cex=0.9, bty="n", text.font=2)
 
 pdf(file = "~output/Figura1D.pdf",width = 5,height = 12)
@@ -104,7 +104,7 @@ pdf(file = "~output/Figura1D.pdf",width = 5,height = 12)
 Crear y exportar grafico de intensidad relativo al coste a las zonas de humedal.
 
 ```{r echo=TRUE, results='hide'}
-plot(pend.rh, main= "", xlab="Segundos", ylab="", xlim=c(0,1150), legend=FALSE, cex.axis=0.9)
+plot(chumed.rh, main= "", xlab="Segundos", ylab="", xlim=c(0,1150), legend=FALSE, cex.axis=0.9)
 legend("topleft", legend="Coste a zonas de Humedal", cex=0.9, bty="n", text.font=2)
 
 pdf(file = "~output/Figura1E.pdf",width = 5,height = 12)
@@ -115,7 +115,7 @@ pdf(file = "~output/Figura1E.pdf",width = 5,height = 12)
 Crear y exportar grafico de intensidad relativo al indice de prominencia visual.
 
 ```{r echo=TRUE, results='hide'}
-plot(pend.rh, main= "", xlab="Indice", ylab="", xlim=c(0,105), legend=FALSE, cex.axis=0.9)
+plot(provi.rh, main= "", xlab="Indice", ylab="", xlim=c(0,105), legend=FALSE, cex.axis=0.9)
 legend("topleft", legend="Prominencia visual", cex=0.9, bty="n", text.font=2)
 
 pdf(file = "~output/Figura1F.pdf",width = 5,height = 12)
